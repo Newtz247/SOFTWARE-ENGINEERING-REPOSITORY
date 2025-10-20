@@ -1,0 +1,86 @@
+/**
+ * FlipCard.css
+ *
+ * Purpose: This CSS file contains the styling for the FlipCard component, including
+ *          the flip animation, layout, and visual styles for both the front and back
+ *          sides of the card. It uses Tailwind CSS utility classes to achieve the desired
+ *          design and effects.
+ *
+ * Author: Tooba Javed (A00468904)
+ *
+ * Note: All styling is done using Tailwind CSS.
+ *
+ * COTS Software:
+ * - Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
+ *   Download link: https://tailwindcss.com/
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Flip card container */
+/* This is the outer container for the flip card, setting up dimensions and perspective */
+.flip-card {
+  @apply flex w-36 h-32 cursor-pointer m-2; /* Flex container with width and height, margin, and pointer cursor */
+  perspective: 1000px; /* Necessary for 3D flip effect */
+}
+
+/* Flip card inner */
+/* This inner container holds the front and back faces of the card */
+.flip-card-inner {
+  @apply relative justify-center w-36 h-36 transition-transform duration-500; /* Relative positioning for absolute children, center alignment, and smooth transition */
+  transform-style: preserve-3d; /* Enables 3D transformations for child elements */
+}
+
+/* Flip when the card is clicked */
+/* Adds a 180-degree rotation to flip the card */
+.flip-card-inner.is-flipped {
+  transform: rotateY(180deg); /* Rotates the card around the Y-axis */
+}
+
+/* Front and back of the card */
+/* Common styles for both the front and back faces */
+.flip-card-front,
+.flip-card-back {
+  @apply absolute w-full h-full flex flex-col justify-center items-center text-white text-center rounded-lg; /* Full size, centered content, and rounded corners */
+  backface-visibility: hidden; /* Hides the face when it's not visible */
+}
+
+/* Specific styles for front and back sides */
+
+/* Front side of the flip card */
+/* Displays the Mi'kmaq word and English translation */
+.flip-card-front {
+  @apply bg-teal-500; /* Light green background color */
+}
+
+/* Back side of the flip card */
+/* Shows the associated image when flipped */
+.flip-card-back {
+  @apply bg-purple-500; /* Purple background color */
+  transform: rotateY(
+    180deg
+  ); /* Rotates the back face so it aligns correctly when flipped */
+}
+
+/* Text styling */
+
+/* Styling for the Mi'kmaq word text */
+/* Makes the Mi'kmaq word bold and prominent */
+.mikmaq-text {
+  @apply text-2xl font-extrabold; /* Larger font size and extra bold weight */
+}
+
+/* Styling for the English translation text */
+/* Styles the English translation beneath the Mi'kmaq word */
+.english-text {
+  @apply text-sm mt-1; /* Smaller font size with a top margin */
+}
+
+/* Image styling on back side */
+
+/* Styles the image displayed on the back of the card */
+.flip-card-image {
+  @apply w-full h-full object-cover rounded-lg; /* Makes the image cover the entire back face with rounded corners */
+}
