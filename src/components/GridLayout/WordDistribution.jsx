@@ -21,7 +21,7 @@ import { WORD_INFO } from "../WordBank";
 import MobileView from "./MobileView";
 import DesktopView from "./DesktopView";
 import tryAgainAudio from "../audio/tryagain.mp3";
-import congratulationsAudio from "../audio/congratulatory.mp3";
+import correctAnswer from "../audio/correctAnswer.mp3";
 import inactivePanel from "../images/colour.jpg";
 
 /**
@@ -161,7 +161,7 @@ function WordDistribution({ month }) {
    */
   const HandleSelection = (selectedImage) => {
     if (selectedImage === displayImage) {
-      new Audio(congratulationsAudio).play();
+      new Audio(correctAnswer).play();
       GenerateWordArray();
       setRoundDisplay((callCount ) + "/" + month);
       setSuccessCount((prevCount) => prevCount + 1);
