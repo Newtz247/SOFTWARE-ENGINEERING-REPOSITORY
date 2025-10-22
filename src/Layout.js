@@ -11,7 +11,7 @@ import React, { useState } from "react"
 import WordDistribution from './components/GridLayout/WordDistribution'; // Importing the Grid component
 import DropDownMenu from './components/Dropdown'; // Importing the DropdownMenu component
 import DictionaryButton from './components/DictionaryButton'; // Importing the DictionaryButton component
-import BackgroundImage from './app-images/Background.png';
+import BackgroundImage from './app-images/summer.png';
 import GridImage from './app-images/Grid.png';
 
 function Layout() {
