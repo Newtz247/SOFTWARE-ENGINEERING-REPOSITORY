@@ -12,6 +12,9 @@ import WordDistribution from './components/GridLayout/WordDistribution'; // Impo
 import DropDownMenu from './components/Dropdown'; // Importing the DropdownMenu component
 import DictionaryButton from './components/DictionaryButton'; // Importing the DictionaryButton component
 import BackgroundImage from './app-images/summer.png';
+import Autumn from './app-images/autumn.png';
+import Spring from './app-images/spring.png';
+import Winter from './app-images/winter.png';
 import GridImage from './app-images/Grid.png';
 
 function Layout() {
