@@ -85,7 +85,7 @@ function DesktopView({
           </div>
           <div className="grid grid-cols-3 gap-0">
             {boxes.map((box, index) => (
-              <div key={index} className="grid-box w-[12vw]">
+              <div key={index} className="grid-box w-[12vw]">      
                 <img
                   src={box.image}
                   alt={box.text}
