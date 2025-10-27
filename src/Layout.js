@@ -25,13 +25,29 @@ function Layout() {
     setSelectedMonth(value); // Update the selected month
   };
 
+  const getBackgroundImage = () => {
+  if (selectedMonth === 3 || selectedMonth === 6 || selectedMonth === 9) {
+    // 3 = Sep, 6 = Oct, 9 = Nov
+    return Autumn;
+  } else if (selectedMonth === 12 || selectedMonth === 15 || selectedMonth === 18) {
+    // 12 = Dec, 15 = Jan, 18 = Feb
+    return Winter;
+  } else if (selectedMonth === 20) {
+    // 20 = Mar
+    return Spring;
+  } else {
+    // Default (optional)
+    return Summer;
+  }
+};
+  
   return (
     <div>
       {/* Container for mobile view layout */}
       <section className="Mobile-App flex lg:hidden">
         <div 
           className="App-background absolute bg-cover bg-center h-screen bg-no-repeat flex flex-col overflow-hidden"
-          style={{ backgroundImage: `url(${BackgroundImage})` }}
+          style={{ backgroundImage: `url(${getBackgroundImage()})` }}
         >
           
           {/* Container for the app headers */}
@@ -68,7 +84,7 @@ function Layout() {
       <section className="Desktop-App hidden lg:flex">
         <div 
           className="App-background absolute bg-cover bg-center h-screen bg-no-repeat flex flex-col overflow-hidden"
-          style={{ backgroundImage: `url(${BackgroundImage})` }}
+          style={{ backgroundImage: `url(${getBackgroundImage()})` }}
         >
 
           {/* Container for the app headers */}
