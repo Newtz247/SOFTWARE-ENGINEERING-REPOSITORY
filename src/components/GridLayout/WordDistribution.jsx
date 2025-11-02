@@ -131,6 +131,10 @@ function WordDistribution({ month }) {
       <DesktopView
         gameEnd={gameEnd}
         successCount={successCount}
+        setSuccessCount={setSuccessCount}
+        month={month}
+        setRoundDisplay={setRoundDisplay}
+        setCallCount={setCallCount}
         onNewGame={NewGame}
         onPlayAudio={PlayAudio}
         onPlayAudioSlow={PlayAudioSlow}

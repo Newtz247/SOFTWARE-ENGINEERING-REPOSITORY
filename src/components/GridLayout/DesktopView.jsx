@@ -2,10 +2,15 @@ import React from "react";
 import StarsDisplay from "./StarsDisplay";
 import PlayAudioImg from "../images/PlayAudio.png";
 import inactivePanel from "../images/colour.jpg";
+import LightBulbImg from "../../app-images/lightBulb.png";
 
 function DesktopView({
   gameEnd,
   successCount,
+  setSuccessCount,
+  month,
+  setCallCount,
+  setRoundDisplay,
   onNewGame,
   onPlayAudio,
   onPlayAudioSlow,   // <-- new prop used below
@@ -15,6 +20,17 @@ function DesktopView({
   onHandleSelection,
 }) {
   const MIKMAQ_SLOW_LABEL = "Kesikew — slow"; // replace with your preferred Mi’kmaw label
+
+  const handleLightBulbClick = (e) => {
+    e.preventDefault();
+
+    if (gameEnd === false && successCount < 3) {
+      // setSuccessCount((prev) => prev - 1); // TO REMOVE ONE, E.G., successCount = 2, after press will be set to 1
+      setSuccessCount(0); // TO SET TO ZERO, E.G., successCount = 2, after press will be set to 0
+      setCallCount(0);
+      setRoundDisplay(`0/${month}`);
+    }
+  }
 
   return (
     <section className="Desktop-View hidden lg:flex">
@@ -69,6 +85,8 @@ function DesktopView({
             </button>
 
             <h1 className="text-5xl mr-[3vw] ml-auto">{roundDisplay}</h1>
+
+            <img onClick={handleLightBulbClick} className="select-none cursor-pointer w-16 transition-all duration-300 ease-in-out hover:scale-110" src={LightBulbImg} alt='Light Bulb' />
           </div>
 
           <div className="grid grid-cols-3 gap-0">

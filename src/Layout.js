@@ -66,6 +66,7 @@ function Layout() {
             <DictionaryButton />
           </div>
 
+        
           {/* Container for the grid component */}
           <div className="flex flex-col items-center justify-center h-[70vh] w-[100vw]">
             <img 
