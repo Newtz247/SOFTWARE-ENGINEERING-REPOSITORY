@@ -1,53 +1,44 @@
-/**
- * DesktopView.jsx
- * 
- * Purpose: Focuses on desktop version features of user interface of grid, word, stars, final score display 
- * and other elements arrangements.
- * 
- * Author(s): Michael Allain, Preksha Joon
- * 
- * 
- * COTS Used:
- * - React: JavaScript library for building user interfaces. (https://reactjs.org/)
- * - Tailwind CSS: Utility-first CSS framework for styling. (https://tailwindcss.com/)
- * - Local assets for images (Michael's efforts and Microsoft Designer) and audio files.
- */
 import React from "react";
 import StarsDisplay from "./StarsDisplay";
 import PlayAudioImg from "../images/PlayAudio.png";
 import inactivePanel from "../images/colour.jpg";
+import LightBulbImg from "../../app-images/lightBulb.png";
 
-/**
- * @param {*} 
- * gameEnd: boolean tells if game has ended
- * successCount: no of correct answers
- * onNewGame: resets paramaters for new game
- * onPlayAudio: Word audio
- * displayText: question word
- * roundDisplay: present round no
- * boxes: images inside grid
- * onHandleSelection: handles the result of selecting a image at each round
- * @returns  Desktop display of user Interface
- */
 function DesktopView({
   gameEnd,
   successCount,
+  setSuccessCount,
+  month,
+  setCallCount,
+  setRoundDisplay,
   onNewGame,
   onPlayAudio,
+  onPlayAudioSlow,   // <-- new prop used below
   displayText,
   roundDisplay,
   boxes,
   onHandleSelection,
 }) {
+  const MIKMAQ_SLOW_LABEL = "Kesikew — slow"; // replace with your preferred Mi’kmaw label
+
+  const handleLightBulbClick = (e) => {
+    e.preventDefault();
+
+    if (gameEnd === false && successCount < 3) {
+      // setSuccessCount((prev) => prev - 1); // TO REMOVE ONE, E.G., successCount = 2, after press will be set to 1
+      setSuccessCount(0); // TO SET TO ZERO, E.G., successCount = 2, after press will be set to 0
+      setCallCount(0);
+      setRoundDisplay(`0/${month}`);
+    }
+  }
+
   return (
     <section className="Desktop-View hidden lg:flex">
       <div className="w-[80vw] h-[40vh]">
         {gameEnd && (
           <div className="fixed animate-fadeIn inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-red-200 rounded-lg shadow-lg p-6 w-[80vw] h-[50vh]">
-              <h2 className="text-center text-4xl font-bold font-comic mb-6">
-                kelulktelatekn
-              </h2>
+              <h2 className="text-center text-4xl font-bold font-comic mb-6">kelulktelatekn</h2>
               <h4 className="text-xl font-bold font-comic mb-4 h-10 flex items-center space-x-2">
                 <span className="flex flex-wrap items-center justify-center space-x-1 mt-[30vh]">
                   <StarsDisplay successCount={successCount} />
@@ -64,13 +55,7 @@ function DesktopView({
             </div>
           </div>
         )}
-        <div className="absolute flex-row justify-start left-[7.5vw] right-[45vw] top-[40vh] pointer-events-none">
-          {successCount > 0 && (
-            <div className="flex flex-wrap gap-1">
-              <StarsDisplay successCount={successCount} />
-            </div>
-          )}
-        </div>
+
         <div className="absolute bottom-[8.6vh] right-[7.1vw] w-[36vw]">
           <div className="flex items-center justify-between font-comic mb-[3vh]">
             <button onClick={onPlayAudio} id="audioBnDesktop">
@@ -80,12 +65,33 @@ function DesktopView({
                 className="hover:scale-110 w-[7vw] transition-all"
               />
             </button>
-            <h1 className="text-5xl ml-[2vw]"><strong>{displayText}</strong></h1>
+
+            <h1 className="text-5xl ml-[2vw]">
+              <strong>{displayText}</strong>
+            </h1>
+
+            {/* Slow text button */}
+            <button
+              type="button"
+              id="slowBnDesktop"
+              data-cy="slow-button-desktop"
+              aria-label="Play slowly"
+              onClick={onPlayAudioSlow}
+              className="mx-[1vw] px-3 py-2 rounded-md border border-amber-700 bg-amber-500
+                         text-white shadow hover:bg-amber-600 focus:outline-none
+                         focus:ring focus:ring-amber-700 transition"
+            >
+              {MIKMAQ_SLOW_LABEL}
+            </button>
+
             <h1 className="text-5xl mr-[3vw] ml-auto">{roundDisplay}</h1>
+
+            <img onClick={handleLightBulbClick} className="select-none cursor-pointer w-16 transition-all duration-300 ease-in-out hover:scale-110" src={LightBulbImg} alt='Light Bulb' />
           </div>
+
           <div className="grid grid-cols-3 gap-0">
             {boxes.map((box, index) => (
-              <div key={index} className="grid-box w-[12vw]">      
+              <div key={index} className="grid-box w-[12vw]">
                 <img
                   src={box.image}
                   alt={box.text}
@@ -93,9 +99,7 @@ function DesktopView({
                     onClick: () => onHandleSelection(box.image),
                   })}
                   className={`rounded-lg ${
-                    box.image === inactivePanel
-                      ? "opacity-80"
-                      : " hover:cursor-pointer"
+                    box.image === inactivePanel ? "opacity-80" : " hover:cursor-pointer"
                   }`}
                 />
               </div>

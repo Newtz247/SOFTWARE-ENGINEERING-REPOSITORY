@@ -40,6 +40,23 @@ function Layout() {
     return Summer;
   }
 };
+
+  const getTextColorClass = () => {
+  if (selectedMonth >= 3 && selectedMonth < 9) {
+    return "text-black"; // Spring (Mar–May): dark text
+  }
+  if (selectedMonth >= 9 && selectedMonth < 12) {
+    return "text-black"; // Autumn (Sep–Nov): dark text
+  }
+  if (selectedMonth >= 12 && selectedMonth < 15) {
+    return "text-white"; // Winter (Dec): white text
+  }
+  if (selectedMonth >= 15 && selectedMonth < 20) {
+    return "text-white"; // Winter (Jan–Feb): white text
+  }
+  return "text-white"; // Summer default
+};
+
   
   return (
     <div>
@@ -52,10 +69,10 @@ function Layout() {
           
           {/* Container for the app headers */}
           <div className="flex flex-col vh-[20vh]">
-            <h1 className="text-center text-red-700 font-bold text-4xl font-comic mt-[1vh]">
+            <h1 className={`text-center font-bold ${getTextColorClass()} text-4xl font-comic mt-[1vh]`}>
               mi'kmaq<br />pictionary
             </h1>
-            <p className="text-center text-red-400 font-bold text-3xl font-comic mt-[1vh]" id="angie-header-mobile">
+            <p className={`text-center font-bold ${getTextColorClass()} text-3xl font-comic mt-[1vh]`} id="angie-header-mobile">
               mikwite'tmk+t Angie
             </p>
           </div>
@@ -66,6 +83,7 @@ function Layout() {
             <DictionaryButton />
           </div>
 
+        
           {/* Container for the grid component */}
           <div className="flex flex-col items-center justify-center h-[70vh] w-[100vw]">
             <img 
