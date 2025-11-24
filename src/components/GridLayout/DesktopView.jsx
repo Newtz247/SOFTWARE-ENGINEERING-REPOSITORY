@@ -24,12 +24,12 @@ function DesktopView({
   const handleLightBulbClick = (e) => {
     e.preventDefault();
 
-    if (gameEnd === false && successCount < 3) {
-      // setSuccessCount((prev) => prev - 1); // TO REMOVE ONE, E.G., successCount = 2, after press will be set to 1
-      setSuccessCount(0); // TO SET TO ZERO, E.G., successCount = 2, after press will be set to 0
-      setCallCount(0);
-      setRoundDisplay(`0/${month}`);
-    }
+    // if (gameEnd === false && successCount < 3) {
+    //   // setSuccessCount((prev) => prev - 1); // TO REMOVE ONE, E.G., successCount = 2, after press will be set to 1
+    //   setSuccessCount(0); // TO SET TO ZERO, E.G., successCount = 2, after press will be set to 0
+    //   setCallCount(0);
+    //   setRoundDisplay(`0/3`);
+    // }
   }
 
   return (
@@ -58,13 +58,14 @@ function DesktopView({
 
         <div className="absolute bottom-[8.6vh] right-[7.1vw] w-[36vw]">
           <div className="flex items-center justify-between font-comic mb-[3vh]">
-            <button onClick={onPlayAudio} id="audioBnDesktop">
+            <button onClick={onPlayAudio} id="audioBnDesktop" className="flex-shrink-0">
               <img
                 src={PlayAudioImg}
                 alt="Play Audio"
                 className="hover:scale-110 w-[7vw] transition-all"
               />
             </button>
+             
 
             <h1 className="text-5xl ml-[2vw]">
               <strong>{displayText}</strong>

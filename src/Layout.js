@@ -16,13 +16,17 @@ import Autumn from './app-images/fall.png';
 import Spring from './app-images/spring.png';
 import Winter from './app-images/winter.png';
 import GridImage from './app-images/Grid.png';
+import { getItem, setItem } from "./utils/localStorage.ts";
 
 function Layout() {
 
-  const [selectedMonth, setSelectedMonth] = useState(3); // Default to 3
+  const [selectedMonth, setSelectedMonth] = useState(() => {
+    return getItem("selectedMonth") || 3;
+  }) // Default to 3
 
   const handleMonthSelect = (value) => {
     setSelectedMonth(value); // Update the selected month
+    setItem("selectedMonth", value); // Store the selected month in localStorage
   };
 
   const getBackgroundImage = () => {
