@@ -54,7 +54,7 @@ function Layout() {
   if (selectedMonth >= 15 && selectedMonth < 20) {
     return "text-white"; // Winter (Jan–Feb): white text
   }
-  return "text-white"; // Summer default
+  return "text-black"; // Summer default
 };
 
   
@@ -107,10 +107,10 @@ function Layout() {
 
           {/* Container for the app headers */}
           <div className="flex flex-col left-[0vw] w-[60vw] h-[30vh]">
-            <h1 className="text-center text-red-700 font-bold text-7xl font-comic mt-[1vh]">
+            <h1 className={`text-center font-bold ${getTextColorClass()} text-4xl font-comic mt-[1vh]`}>
               mi'kmaq pictionary
             </h1>
-            <p className="text-center text-red-400 font-bold text-6xl font-comic mt-[1vh]" id="angie-header-desktop">
+            <p className={`text-center font-bold ${getTextColorClass()} text-3xl font-comic mt-[1vh]`} id="angie-header-desktop">
               mikwite'tmk+t Angie
             </p>
           </div>
