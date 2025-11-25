@@ -91,21 +91,27 @@ function DesktopView({
           </div>
 
           <div className="grid grid-cols-3 gap-0">
-            {boxes.map((box, index) => (
-              <div key={index} className="grid-box w-[12vw]">
-                <img
-                  src={box.image}
-                  alt={box.text}
-                  {...(!(box.image === inactivePanel) && {
-                    onClick: () => onHandleSelection(box.image),
-                  })}
-                  className={`rounded-lg ${
-                    box.image === inactivePanel ? "opacity-80" : " hover:cursor-pointer"
-                  }`}
-                />
-              </div>
-            ))}
-          </div>
+  {boxes.map((box, index) => (
+    <div
+      key={index}
+      className="grid-box w-[12vw] aspect-square overflow-hidden flex items-center justify-center"
+    >
+      <img
+        src={box.image}
+        alt={box.text}
+        onClick={
+          box.image === inactivePanel
+            ? undefined
+            : () => onHandleSelection(box.image)
+        }
+        className={
+          "w-full h-full object-cover rounded-lg " +
+          (box.image === inactivePanel ? "opacity-80" : "hover:cursor-pointer")
+        }
+      />
+    </div>
+  ))}
+</div>
         </div>
       </div>
     </section>

@@ -38,10 +38,10 @@ function Layout() {
     return Winter;
   } else if (selectedMonth === 20) {
     // 20 = Mar
-    return Spring;
+    return Summer;
   } else {
     // Default (optional)
-    return Summer;
+    return Spring;
   }
 };
 
