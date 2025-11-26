@@ -12,7 +12,7 @@
  * - Local assets: Images and audio files representing Mi'kmaq words.
  */
 
-// Import audio files and images for Mi'kmaq words
+// Import all audio files and images for Mi'kmaq words
 import ninAudio from "./audio/ni'n.mp3";
 import ninImage from "./images/ni'n.jpeg";
 
