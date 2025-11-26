@@ -86,9 +86,3 @@ export function useAudioState() {
   return ctx;
 }
 
-// export function useAudioActions() {
-//   const ctx = useContext(AudioActionsCtx);
-//   if (!ctx) throw new Error("useAudioActions must be used within <AudioProvider>");
-//   return ctx;
-// }
-
