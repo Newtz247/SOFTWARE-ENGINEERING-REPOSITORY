@@ -5,7 +5,7 @@
  *          audio files, and images for use in a language learning game. This module also
  *          exports processed data structures for easy integration with other components.
  * 
- * Author(s): Aaron Gonsalves, Preksha Joon
+ * Author(s): Aaron Gonsalves, Preksha Joon, Nokutenda Gumbie
  * Assisted by: ChatGPT (Documentation assistance + Data Transformation)
  * 
  * COTS Used:
@@ -20,13 +20,13 @@ import kilAudio from "./audio/ki'l.mp3";
 import kilImage from "./images/ki'l.png";
 
 import nemituAudio from "./audio/nemitu.mp3";
-import nemituImage from "./images/nemitu.jpeg";
+import nemituImage from "./images/nemitu.png";
 
 import tataAudio from "./audio/ta'ta.mp3";
 import tataImage from "./images/ta'ta.png";
 
 import ltuAudio from "./audio/l'tu.mp3";
-import ltuImage from "./images/l'tu.jpeg";
+import ltuImage from "./images/l'tu.png";
 
 import elieyAudio from "./audio/eliey.mp3";
 import elieyImage from "./images/eliey.png";
@@ -47,10 +47,10 @@ import wejieyAudio from "./audio/wejiey.mp3";
 import wejieyImage from "./images/wejiey.jpeg";
 
 import kesalkAudio from "./audio/kesalk.mp3";
-import kesalkImage from "./images/kesalk.jpeg";
+import kesalkImage from "./images/kesalk.png";
 
 import kesatmAudio from "./audio/kesatm.mp3";
-import kesatmImage from "./images/kesatm.jpeg";
+import kesatmImage from "./images/kesatm.png";
 
 import kijuAudio from "./audio/kiju'.mp3";
 import kijuImage from "./images/kiju'.jpeg";
