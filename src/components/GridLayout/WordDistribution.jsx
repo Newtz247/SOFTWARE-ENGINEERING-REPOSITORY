@@ -130,13 +130,6 @@ function WordDistribution({ month }) {
     }
     setCallCount((n) => n + 1);
     setItem("currentCallCount", callCount);
-//     setCallCount((prev) => {
-//     const newValue = prev + 1;
-//     setItem("currentCallCount", newValue); // save the correct updated value
-//     return newValue;
-// });
-    //GenerateWordArray();
-    //setRoundDisplay(`${callCount}/3`);
   };
   
   // Update round display when callCount changes
@@ -180,7 +173,8 @@ function WordDistribution({ month }) {
     newGameTimer.current = setTimeout(() => {
       setCallCount(0);
       setSuccessCount(0);
-      setInitWords((prev) => [...prev].sort(() => Math.random() - 0.5));
+      // setInitWords((prev) => [...prev].sort(() => Math.random() - 0.5));
+      setInitWords((prev) => [...prev].sort());
       setIsInitialized(false);
       setGameEnd(false);
       setIsStarting(false);
