@@ -1,5 +1,4 @@
 import { BackgroundImage, Center, Box, Button, Text } from '@mantine/core';
-// import MapMarker from './components/MapMarker';
 import background from './components/images/summer.jpeg';
 import ViewDictionaryButton from './components/ViewDictionaryButton';
 import{Link} from 'react-router-dom';
@@ -37,6 +36,7 @@ function Homepage () {
             variant ="filled" color='red'
             component={Link}
             to="/Layout"
+            onClick={() => {localStorage.clear();}}
           >
               Go to Pictionary Game
           </Button>

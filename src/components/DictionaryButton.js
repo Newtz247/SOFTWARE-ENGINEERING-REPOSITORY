@@ -8,9 +8,10 @@
   * Author: Tooba Javed (A00468904)
   */
 
- import React, { useState } from 'react';
+ import React, { useState, useEffect } from 'react';
  import DictionaryModal from './DictionaryModal';
  import DictionaryImage from './images/DictionaryImage.png'
+import { getItem, setItem } from '../utils/localStorage.ts';
 
  /**
   * DictionaryButton Component
@@ -24,7 +25,13 @@ const DictionaryButton = () => {
 
    // NEW: state for limiting dictionary access
    const MAX_DICTIONARY_USES = 3;
-   const [usesLeft, setUsesLeft] = useState(MAX_DICTIONARY_USES);
+   const [usesLeft, setUsesLeft] = useState(() => {
+      return getItem("dictionaryUsesLeft") ?? MAX_DICTIONARY_USES;
+    });
+
+    useEffect(() => {
+      setItem("dictionaryUsesLeft", usesLeft);
+    }, [usesLeft]);
 
    /**
     * openModal Function
