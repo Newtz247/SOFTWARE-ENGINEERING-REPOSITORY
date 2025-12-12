@@ -56,7 +56,7 @@ import kijuAudio from "./audio/kiju'.mp3";
 import kijuImage from "./images/kiju'.png";
 
 import nekmAudio from "./audio/nekm.mp3";
-import nekmImage from "./images/nekm.jpg";
+import nekmImage from "./images/nekm.png";
 
 import alatuAudio from "./audio/ala'tu.mp3";
 import alatuImage from "./images/ala'tu.jpg";
