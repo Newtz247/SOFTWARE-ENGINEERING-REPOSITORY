@@ -68,7 +68,7 @@ import kesalulAudio from "./audio/kesalul.mp3";
 import kesalulImage from "./images/kesalul.png";
 
 import weltasiAudio from "./audio/welta'si.mp3";
-import weltasiImage from "./images/welta'si.jpg";
+import weltasiImage from "./images/welta'si.png";
 
 import wenAudio from "./audio/wen.mp3";
 import wenImage from "./images/wen.jpg";
