@@ -23,7 +23,7 @@ import nemituAudio from "./audio/nemitu.mp3";
 import nemituImage from "./images/nemitu.png";
 
 import tataAudio from "./audio/ta'ta.mp3";
-import tataImage from "./images/ta'ta.png";
+import tataImage from "./images/ta'ta.jpg";
 
 import ltuAudio from "./audio/l'tu.mp3";
 import ltuImage from "./images/l'tu.png";
@@ -53,25 +53,25 @@ import kesatmAudio from "./audio/kesatm.mp3";
 import kesatmImage from "./images/kesatm.png";
 
 import kijuAudio from "./audio/kiju'.mp3";
-import kijuImage from "./images/kiju'.jpeg";
+import kijuImage from "./images/kiju'.png";
 
 import nekmAudio from "./audio/nekm.mp3";
-import nekmImage from "./images/nekm.png";
+import nekmImage from "./images/nekm.jpg";
 
 import alatuAudio from "./audio/ala'tu.mp3";
-import alatuImage from "./images/ala'tu.png";
+import alatuImage from "./images/ala'tu.jpg";
 
 import ulaAudio from "./audio/ula.mp3";
 import ulaImage from "./images/ula.png";
 
 import kesalulAudio from "./audio/kesalul.mp3";
-import kesalulImage from "./images/kesalul.png";
+import kesalulImage from "./images/kesalul.jpg";
 
 import weltasiAudio from "./audio/welta'si.mp3";
-import weltasiImage from "./images/welta'si.jpeg";
+import weltasiImage from "./images/welta'si.jpg";
 
 import wenAudio from "./audio/wen.mp3";
-import wenImage from "./images/wen.jpeg";
+import wenImage from "./images/wen.jpg";
 
 /**
  * allWords
