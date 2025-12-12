@@ -23,7 +23,7 @@ import nemituAudio from "./audio/nemitu.mp3";
 import nemituImage from "./images/nemitu.png";
 
 import tataAudio from "./audio/ta'ta.mp3";
-import tataImage from "./images/ta'ta.jpg";
+import tataImage from "./images/ta'ta.png";
 
 import ltuAudio from "./audio/l'tu.mp3";
 import ltuImage from "./images/l'tu.png";
