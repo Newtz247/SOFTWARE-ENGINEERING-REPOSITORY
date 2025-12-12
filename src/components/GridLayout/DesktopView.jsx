@@ -18,19 +18,18 @@ function DesktopView({
   roundDisplay,
   boxes,
   onHandleSelection,
-  isStarting
 }) {
   const MIKMAQ_SLOW_LABEL = "Sangew tlua"; // replace with your preferred Mi’kmaw label
 
   const handleLightBulbClick = (e) => {
     e.preventDefault();
 
-    if (gameEnd === false && successCount < 3) {
-      // setSuccessCount((prev) => prev - 1); // TO REMOVE ONE, E.G., successCount = 2, after press will be set to 1
-      setSuccessCount(0); // TO SET TO ZERO, E.G., successCount = 2, after press will be set to 0
-      setCallCount(0);
-      setRoundDisplay(`0/3`);
-    }
+    // if (gameEnd === false && successCount < 3) {
+    //   // setSuccessCount((prev) => prev - 1); // TO REMOVE ONE, E.G., successCount = 2, after press will be set to 1
+    //   setSuccessCount(0); // TO SET TO ZERO, E.G., successCount = 2, after press will be set to 0
+    //   setCallCount(0);
+    //   setRoundDisplay(`0/3`);
+    // }
   }
 
   return (
@@ -41,9 +40,9 @@ function DesktopView({
             <div className="bg-red-200 rounded-lg shadow-lg p-6 w-[80vw] h-[50vh]">
               <h2 className="text-center text-4xl font-bold font-comic mb-6">kelulktelatekn</h2>
               <h4 className="text-xl font-bold font-comic mb-4 h-10 flex items-center space-x-2">
-                <div className="flex flex-wrap items-center justify-center space-x-1 mt-[30vh]">
+                <span className="flex flex-wrap items-center justify-center space-x-1 mt-[30vh]">
                   <StarsDisplay successCount={successCount} />
-                </div>
+                </span>
               </h4>
               <div className="absolute right-[15vw] bottom-[30vh]">
                 <button
@@ -93,33 +92,22 @@ function DesktopView({
 
           <div className="grid grid-cols-3 gap-0">
             {boxes.map((box, index) => (
-              <div key={index} className="grid-box w-[12vw] aspect-sqaure overflow-hidden flex items-center justify-center">
+              <div key={index} className="grid-box w-[12vw]">
                 <img
                   src={box.image}
                   alt={box.text}
-                  onClick = {
-                    box.image === inactivePanel
-                    ? undefined 
-                    : () => onHandleSelection(box.image)
-                  }
-                  className={"w-full h-full object-cover rounded-lg" + 
-                    (box.image === inactivePanel ? "opacity-80" : "hover:cursor-pointer")
-                  }
+                  {...(!(box.image === inactivePanel) && {
+                    onClick: () => onHandleSelection(box.image),
+                  })}
+                  className={`rounded-lg ${
+                    box.image === inactivePanel ? "opacity-80" : " hover:cursor-pointer"
+                  }`}
                 />
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {isStarting && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-white rounded-lg p-6 shadow text-center font-comic">
-            <p className="text-2xl font-bold mb-2">Starting new game…</p>
-            <p className="text-sm text-slate-600">Get ready!</p>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

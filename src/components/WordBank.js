@@ -5,14 +5,14 @@
  *          audio files, and images for use in a language learning game. This module also
  *          exports processed data structures for easy integration with other components.
  * 
- * Author(s): Aaron Gonsalves, Preksha Joon
+ * Author(s): Aaron Gonsalves, Preksha Joon, Nokutenda Gumbie
  * Assisted by: ChatGPT (Documentation assistance + Data Transformation)
  * 
  * COTS Used:
  * - Local assets: Images and audio files representing Mi'kmaq words.
  */
 
-// Import all audio files and images for Mi'kmaq words
+// Import audio files and images for Mi'kmaq words
 import ninAudio from "./audio/ni'n.mp3";
 import ninImage from "./images/ni'n.png";
 

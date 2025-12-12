@@ -68,19 +68,16 @@ const DictionaryModal = ({ closeModal }) => {
           data-cy="dictionary-modal-desktop"
           className="bg-red-200 rounded-lg p-8 relative w-[98%] max-w-[80vw] max-h-[90vh] overflow-y-auto overflow-x-hidden">
             
-          <div className='w-full inline-flex items-center justify-end'>
-              {/* Close button - allows the user to close the modal */}
+            {/* Close button - allows the user to close the modal */}
             <button 
-              // className="absolute top-0 right-[2vw] text-red-700 text-8xl font-bold focus:outline-double" 
-              className="text-red-700 text-8xl font-bold focus:outline-double" 
+              className="absolute top-0 right-[2vw] text-red-700 text-8xl font-bold focus:outline-double" 
               onClick={closeModal}
             >
               ×
             </button>
-          </div>
             
             {/* Grid layout for displaying flip cards - set to two columns with spacing between cards */}
-            <div className="w-full grid grid-cols-5 gap-x-10 gap-y-4 mt-2 align-center">
+            <div className="grid grid-cols-5 gap-x-10 gap-y-4 mt-2 mr-10 align-center">
               {flipCards}
             </div>
           </div>

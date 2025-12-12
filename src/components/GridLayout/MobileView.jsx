@@ -13,7 +13,6 @@ function MobileView({
   roundDisplay,
   boxes,
   onHandleSelection,
-  isStarting
 }) {
   const MIKMAQ_SLOW_LABEL = "Kesikew — slow"; // replace with your preferred Mi’kmaw label
 
@@ -25,9 +24,9 @@ function MobileView({
             <div className="bg-red-200 rounded-lg shadow-lg p-6 w-[90vw] h-[50vh]">
               <h2 className="text-center text-3xl font-bold font-comic mb-6">kelulktelatekn</h2>
               <h4 className="text-lg font-bold font-comic mb-4 h-10 flex items-center space-x-2">
-                <div className="flex flex-wrap items-center justify-center space-x-1 mt-[30vh]">
+                <span className="flex flex-wrap items-center justify-center space-x-1 mt-[30vh]">
                   <StarsDisplay successCount={successCount} />
-                </div>
+                </span>
               </h4>
               <div className="absolute right-[10vw] bottom-[30vh]">
                 <button
@@ -88,15 +87,6 @@ function MobileView({
           ))}
         </div>
       </div>
-
-      {isStarting && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-white rounded-lg p-6 shadow text-center font-comic">
-            <p className="text-2xl font-bold mb-2">Starting new game…</p>
-            <p className="text-sm text-slate-600">Get ready!</p>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

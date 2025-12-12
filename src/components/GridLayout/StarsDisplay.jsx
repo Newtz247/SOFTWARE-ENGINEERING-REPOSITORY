@@ -17,15 +17,18 @@ import mikmaqStar from "../images/mikmaqStar.png";
 
 function StarsDisplay({ successCount }) {
   return (
-    <div className='inline-flex items-center justify-center gap-2'>
-      <img
-        src={mikmaqStar}
-        alt="Success"
-        className="w-[8vw] rounded-full animate-fadeIn"
-      />
-
-      <span className="font-bold text-4xl">x{successCount}</span>
-    </div>
+    <>
+      {Array(successCount)
+        .fill(null)
+        .map((_, index) => (
+          <img
+            key={index}
+            src={mikmaqStar}
+            alt="Success"
+            className="w-[8vw] rounded-full animate-fadeIn"
+          />
+        ))}
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { WORD_INFO } from "../WordBank";
 import MobileView from "./MobileView";
 import DesktopView from "./DesktopView";
@@ -9,8 +9,6 @@ import { setItem, getItem } from "../../utils/localStorage.ts";
 
 
 function WordDistribution({ month }) {
-  const newGameTimer = useRef(null);
-  const newGameDelay = 2000; // 2000ms = 2s
 
 //track how many rounds have been played and persist in local storage
   const [callCount, setCallCount] = useState(() => {
@@ -29,7 +27,6 @@ function WordDistribution({ month }) {
   const [displayAudio, setDisplayAudio] = useState();
   const [displayImage, setDisplayImage] = useState();
   const [roundDisplay, setRoundDisplay] = useState(`${callCount}/${month}`);
-  const [isStarting, setIsStarting] = useState(false);
 
   const [successCount, setSuccessCount] = useState(()=> {
     return getItem("successCount") || 0;
@@ -180,15 +177,12 @@ function WordDistribution({ month }) {
     newGameTimer.current = setTimeout(() => {
       setCallCount(0);
       setSuccessCount(0);
-      // setInitWords((prev) => [...prev].sort(() => Math.random() - 0.5));
-      setInitWords((prev) => [...prev].sort());
+      setInitWords((prev) => [...prev].sort(() => Math.random() - 0.5));
       setIsInitialized(false);
       setGameEnd(false);
       setIsStarting(false);
     }, newGameDelay);
   };
-
-  useEffect(() => () => clearTimeout(newGameTimer.current), []);
 
   return (
     <div>
@@ -202,9 +196,7 @@ function WordDistribution({ month }) {
         roundDisplay={roundDisplay}
         boxes={boxes}
         onHandleSelection={HandleSelection}
-        isStarting={isStarting}
       />
-
       <DesktopView
         gameEnd={gameEnd}
         successCount={successCount}
@@ -219,7 +211,6 @@ function WordDistribution({ month }) {
         roundDisplay={roundDisplay}
         boxes={boxes}
         onHandleSelection={HandleSelection}
-        isStarting={isStarting}
       />
     </div>
   );
