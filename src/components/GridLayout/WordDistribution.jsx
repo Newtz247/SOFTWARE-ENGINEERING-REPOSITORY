@@ -180,7 +180,8 @@ function WordDistribution({ month }) {
     newGameTimer.current = setTimeout(() => {
       setCallCount(0);
       setSuccessCount(0);
-      setInitWords((prev) => [...prev].sort(() => Math.random() - 0.5));
+      // setInitWords((prev) => [...prev].sort(() => Math.random() - 0.5));
+      setInitWords((prev) => [...prev].sort());
       setIsInitialized(false);
       setGameEnd(false);
       setIsStarting(false);

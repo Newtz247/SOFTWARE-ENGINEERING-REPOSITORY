@@ -14,31 +14,31 @@
 
 // Import all audio files and images for Mi'kmaq words
 import ninAudio from "./audio/ni'n.mp3";
-import ninImage from "./images/ni'n.jpeg";
+import ninImage from "./images/ni'n.png";
 
 import kilAudio from "./audio/ki'l.mp3";
-import kilImage from "./images/ki'l.jpeg";
+import kilImage from "./images/ki'l.png";
 
 import nemituAudio from "./audio/nemitu.mp3";
-import nemituImage from "./images/nemitu.jpeg";
+import nemituImage from "./images/nemitu.png";
 
 import tataAudio from "./audio/ta'ta.mp3";
 import tataImage from "./images/ta'ta.png";
 
 import ltuAudio from "./audio/l'tu.mp3";
-import ltuImage from "./images/l'tu.jpeg";
+import ltuImage from "./images/l'tu.png";
 
 import elieyAudio from "./audio/eliey.mp3";
-import elieyImage from "./images/eliey.jpeg";
+import elieyImage from "./images/eliey.png";
 
 import wiktmAudio from "./audio/wiktm.mp3";
-import wiktmImage from "./images/wiktm.jpeg";
+import wiktmImage from "./images/wiktm.png";
 
 import teluisiAudio from "./audio/teluisi.mp3";
 import teluisiImage from "./images/teluisi.png";
 
 import mijisiAudio from "./audio/mijisi.mp3";
-import mijisiImage from "./images/mijisi.jpeg";
+import mijisiImage from "./images/mijisi.png";
 
 import aqqAudio from "./audio/aqq.mp3";
 import aqqImage from "./images/aqq.jpeg";
@@ -47,10 +47,10 @@ import wejieyAudio from "./audio/wejiey.mp3";
 import wejieyImage from "./images/wejiey.jpeg";
 
 import kesalkAudio from "./audio/kesalk.mp3";
-import kesalkImage from "./images/kesalk.jpeg";
+import kesalkImage from "./images/kesalk.png";
 
 import kesatmAudio from "./audio/kesatm.mp3";
-import kesatmImage from "./images/kesatm.jpeg";
+import kesatmImage from "./images/kesatm.png";
 
 import kijuAudio from "./audio/kiju'.mp3";
 import kijuImage from "./images/kiju'.jpeg";

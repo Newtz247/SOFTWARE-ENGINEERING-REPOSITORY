@@ -20,7 +20,7 @@ function DesktopView({
   onHandleSelection,
   isStarting
 }) {
-  const MIKMAQ_SLOW_LABEL = "Kesikew — slow"; // replace with your preferred Mi’kmaw label
+  const MIKMAQ_SLOW_LABEL = "Sangew tlua"; // replace with your preferred Mi’kmaw label
 
   const handleLightBulbClick = (e) => {
     e.preventDefault();
@@ -93,16 +93,18 @@ function DesktopView({
 
           <div className="grid grid-cols-3 gap-0">
             {boxes.map((box, index) => (
-              <div key={index} className="grid-box w-[12vw]">
+              <div key={index} className="grid-box w-[12vw] aspect-sqaure overflow-hidden flex items-center justify-center">
                 <img
                   src={box.image}
                   alt={box.text}
-                  {...(!(box.image === inactivePanel) && {
-                    onClick: () => onHandleSelection(box.image),
-                  })}
-                  className={`rounded-lg ${
-                    box.image === inactivePanel ? "opacity-80" : " hover:cursor-pointer"
-                  }`}
+                  onClick = {
+                    box.image === inactivePanel
+                    ? undefined 
+                    : () => onHandleSelection(box.image)
+                  }
+                  className={"w-full h-full object-cover rounded-lg" + 
+                    (box.image === inactivePanel ? "opacity-80" : "hover:cursor-pointer")
+                  }
                 />
               </div>
             ))}

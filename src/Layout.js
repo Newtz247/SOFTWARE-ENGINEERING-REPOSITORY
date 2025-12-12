@@ -11,7 +11,7 @@ import React, { useState } from "react"
 import WordDistribution from './components/GridLayout/WordDistribution'; // Importing the Grid component
 import DropDownMenu from './components/Dropdown'; // Importing the DropdownMenu component
 import DictionaryButton from './components/DictionaryButton'; // Importing the DictionaryButton component
-import Summer from './app-images/summer.png';
+import Summer from '../src/components/images/summer.jpeg';
 import Autumn from './app-images/fall.png';
 import Spring from './app-images/spring.png';
 import Winter from './app-images/winter.png';
@@ -38,7 +38,7 @@ function Layout() {
     return Winter;
   } else if (selectedMonth === 20) {
     // 20 = Mar
-    return Spring;
+    return Summer;
   } else {
     // Default (optional)
     return Summer;
@@ -58,9 +58,8 @@ function Layout() {
   if (selectedMonth >= 15 && selectedMonth < 20) {
     return "text-white"; // Winter (Jan–Feb): white text
   }
-  return "text-white"; // Summer default
-};
-
+  return "text-black";
+  }
   
   return (
     <div>
