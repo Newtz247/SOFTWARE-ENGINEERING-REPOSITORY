@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import { WORD_INFO } from "../WordBank";
 import MobileView from "./MobileView";
 import DesktopView from "./DesktopView";
@@ -36,6 +36,9 @@ function WordDistribution({ month }) {
   }, [successCount]);
 
   const [gameEnd, setGameEnd] = useState(false);
+  const [isStarting, setIsStarting] = useState(false);
+  const newGameTimer = useRef(null);
+  const newGameDelay = 2000; // add 2-second pause between games
 
   //check if the game is over
   const GameOver = useCallback(() => {
@@ -82,7 +85,7 @@ function WordDistribution({ month }) {
     setDisplayImage(fixedWord.image);
     setDisplayAudio(fixedWord.audio);
 
-  }, [initWords, month, GameOver]); 
+  }, [initWords, month, GameOver, callCount]); 
   
   // get a list of words from WORD_INFO based on month
   useEffect(() => {
@@ -116,7 +119,7 @@ function WordDistribution({ month }) {
     GenerateWordArray();
     setRoundDisplay(`${callCount}/3`);
   }
-}, [initWords, isInitialized, callCount, month]);
+}, [initWords, isInitialized, callCount, month, GenerateWordArray]);
 
   const HandleSelection = (selectedImage) => {
     if (selectedImage === displayImage) {
@@ -153,7 +156,7 @@ function WordDistribution({ month }) {
       setGameEnd(true);
     }
 
-  }, [callCount, isInitialized]);
+  }, [callCount, isInitialized, GenerateWordArray]);
 
 
   const PlayAudio = () => {
@@ -184,8 +187,26 @@ function WordDistribution({ month }) {
     }, newGameDelay);
   };
 
+  const HandleHint = () => {
+    if (!initWords.length) return;
+
+    // Reset progress without altering the grid contents
+    setCallCount(0);
+    setSuccessCount(0);
+    setGameEnd(false);
+    setRoundDisplay("0/3");
+    GenerateWordArray();
+  };
+
   return (
     <div>
+      {isStarting && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-60">
+          <div className="bg-white rounded-xl shadow-lg px-8 py-6 text-center font-comic text-2xl">
+            New game loading...
+          </div>
+        </div>
+      )}
       <MobileView
         gameEnd={gameEnd}
         successCount={successCount}
@@ -204,6 +225,7 @@ function WordDistribution({ month }) {
         month={month}
         setRoundDisplay={setRoundDisplay}
         setCallCount={setCallCount}
+        onHint={HandleHint}
         onNewGame={NewGame}
         onPlayAudio={PlayAudio}
         onPlayAudioSlow={PlayAudioSlow}
