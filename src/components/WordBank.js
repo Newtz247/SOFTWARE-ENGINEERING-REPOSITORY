@@ -62,7 +62,7 @@ import alatuAudio from "./audio/ala'tu.mp3";
 import alatuImage from "./images/ala'tu.png";
 
 import ulaAudio from "./audio/ula.mp3";
-import ulaImage from "./images/ula.png";
+import ulaImage from "./images/ula.jpg";
 
 import kesalulAudio from "./audio/kesalul.mp3";
 import kesalulImage from "./images/kesalul.png";
