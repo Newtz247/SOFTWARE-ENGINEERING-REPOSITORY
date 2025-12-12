@@ -59,7 +59,7 @@ import nekmAudio from "./audio/nekm.mp3";
 import nekmImage from "./images/nekm.png";
 
 import alatuAudio from "./audio/ala'tu.mp3";
-import alatuImage from "./images/ala'tu.jpg";
+import alatuImage from "./images/ala'tu.png";
 
 import ulaAudio from "./audio/ula.mp3";
 import ulaImage from "./images/ula.png";
