@@ -71,7 +71,7 @@ import weltasiAudio from "./audio/welta'si.mp3";
 import weltasiImage from "./images/welta'si.png";
 
 import wenAudio from "./audio/wen.mp3";
-import wenImage from "./images/wen.jpg";
+import wenImage from "./images/wen.png";
 
 /**
  * allWords
