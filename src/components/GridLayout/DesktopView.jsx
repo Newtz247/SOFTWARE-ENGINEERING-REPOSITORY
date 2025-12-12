@@ -2,7 +2,8 @@ import React from "react";
 import StarsDisplay from "./StarsDisplay";
 import PlayAudioImg from "../images/PlayAudio.png";
 import inactivePanel from "../images/colour.jpg";
-import LightBulbImg from "../../app-images/lightBulb.png";
+// import LightBulbImg from "../../app-images/lightBulb.png";
+import LightBulbImg from "../../app-images/sun.png";
 
 function DesktopView({
   gameEnd,
@@ -11,6 +12,7 @@ function DesktopView({
   month,
   setCallCount,
   setRoundDisplay,
+  onHint,
   onNewGame,
   onPlayAudio,
   onPlayAudioSlow,   // <-- new prop used below
@@ -24,13 +26,10 @@ function DesktopView({
   const handleLightBulbClick = (e) => {
     e.preventDefault();
 
-    // if (gameEnd === false && successCount < 3) {
-    //   // setSuccessCount((prev) => prev - 1); // TO REMOVE ONE, E.G., successCount = 2, after press will be set to 1
-    //   setSuccessCount(0); // TO SET TO ZERO, E.G., successCount = 2, after press will be set to 0
-    //   setCallCount(0);
-    //   setRoundDisplay(`0/3`);
-    // }
-  }
+    if (gameEnd === false && successCount < 3 && onHint) {
+      onHint();
+    }
+  };
 
   return (
     <section className="Desktop-View hidden lg:flex">

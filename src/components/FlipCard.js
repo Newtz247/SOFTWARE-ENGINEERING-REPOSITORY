@@ -9,7 +9,7 @@
  */
 
 import {  WORD_INFO } from "./WordBank.js";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './FlipCard.css';
 
 /**
@@ -25,6 +25,7 @@ import './FlipCard.css';
  */
 const FlipCard = ({ mikmaqWord, englishMeaning }) => {
   const [isFlipped, setIsFlipped] = useState(false); // Tracks whether the card is flipped
+  const flipBackTimerRef = useRef(null);
 
   /**
    * handleClick Function
@@ -32,7 +33,7 @@ const FlipCard = ({ mikmaqWord, englishMeaning }) => {
    * Purpose: Toggles the card's flipped state when clicked, showing either the front or back.
    */
   const handleClick = () => {
-    setIsFlipped(!isFlipped);
+    setIsFlipped((prev) => !prev);
   };
 
   // Find the word data (image, audio, etc.) that matches the mikmaqWord
@@ -51,6 +52,24 @@ const FlipCard = ({ mikmaqWord, englishMeaning }) => {
         audio.play();
       }
     }, [isFlipped, wordData]);
+
+  // auto-flip back to the front after 3 seconds when opened
+  useEffect(() => {
+    if (!isFlipped) {
+      if (flipBackTimerRef.current) {
+        clearTimeout(flipBackTimerRef.current);
+        flipBackTimerRef.current = null;
+      }
+      return;
+    }
+
+    const timerId = setTimeout(() => setIsFlipped(false), 3000);
+    flipBackTimerRef.current = timerId;
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [isFlipped]);
 
   return (
     <div className="flip-card" onClick={handleClick}>
